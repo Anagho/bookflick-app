@@ -1,6 +1,6 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import "dotenv/config";
 import job from "./lib/cron.js";
 
 import { connectDB } from "./lib/db.js";
@@ -9,7 +9,10 @@ import authRoutes from "./routes/authRoutes.js";
 import bookRoutes from "./routes/bookRoutes.js";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
+
+console.log("MONGO_URI:", process.env.MONGO_URI);
+
 
 job.start();
 app.use(express.json())
