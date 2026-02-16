@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors());
 
 // health
-app.use("/", (res) => {
+app.get("/", (res) => {
   res.send("API is working");
 });
 
