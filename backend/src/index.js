@@ -13,10 +13,14 @@ const PORT = process.env.PORT || 4000;
 
 console.log("MONGO_URI:", process.env.MONGO_URI);
 
-
 job.start();
-app.use(express.json())
-app.use(cors())
+app.use(express.json());
+app.use(cors());
+
+// health
+app.use("/", (res) => {
+  res.send("API is working");
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/books", bookRoutes);
